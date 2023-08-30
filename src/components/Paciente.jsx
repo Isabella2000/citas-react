@@ -1,32 +1,34 @@
 import React from "react";
 
-const Paciente = () => {
+const Paciente = ({paciente}) => {
+
+  // distructuring
+  const{nombre, propietario, email, fecha, sintomas}=paciente
+
   return (
-    <div className="mt-5 bg-white shadow-md px-5 py-10 rounded-xl ml-5">
+    <div className="mx-5 my-10 bg-white shadow-md px-5 py-10 rounded-xl ml-5">
       <p className="font-bold mb-3 uppercase text-gray-700">
         Nombre: {""}
-        <span className=" font-normal normal-case">Isabella</span>
+        <span className=" font-normal normal-case">{nombre}</span>
       </p>
       <p className="font-bold mb-3 uppercase text-gray-700">
         Propietario: {""}
-        <span className=" font-normal normal-case">Juan</span>
+        <span className=" font-normal normal-case">{propietario}</span>
       </p>
       <p className="font-bold mb-3 uppercase text-gray-700">
         Email: {""}
         <span className=" font-normal normal-case">
-          collantemendeizsabella@gmail.com
+          {email}
         </span>
       </p>
       <p className="font-bold mb-3 uppercase text-gray-700">
         Fecha alta: {""}
-        <span className=" font-normal normal-case">10 Diciembre de 2022</span>
+        <span className=" font-normal normal-case">{fecha}</span>
       </p>
       <p className="font-bold mb-3 uppercase text-gray-700">
         Sintomas: {""}
         <span className=" font-normal normal-case">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus
-          distinctio molestiae deleniti, quaerat iusto quidem asperiores magnam
-          in reprehenderit ad minima, ratione.
+          {sintomas}
         </span>
       </p>
     </div>
