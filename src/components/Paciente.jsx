@@ -1,15 +1,34 @@
 import React from "react";
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
+
 
 const Paciente = ({ paciente, setPaciente, eliminarPaciente }) => {
+  const MySwal = withReactContent(Swal)
+
   // distructuring
   const { nombre, propietario, email, fecha, sintomas, id } = paciente;
 
   const handleEliminar=()=>{
-    const respuesta=confirm("Desea eliminar este registro?");
-    if (respuesta) {
-      eliminarPaciente(id)
-      
-    }
+    const respuesta= Swal.fire({
+      title: 'Desea eliminar este registro?',
+      text: "Se eliminara del localStorage",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Eliminar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire(
+          'Eliminado!',
+          'El paciente ha sido eliminado.',
+          'success'
+        )
+        eliminarPaciente(id)
+      }
+    })
+    
   }
 
   return (
@@ -38,7 +57,7 @@ const Paciente = ({ paciente, setPaciente, eliminarPaciente }) => {
       <div className="flex justify-between mt-10">
         <button
           type="button"
-          className="py-2 px-10 bg-indigo-600 rounded-md font-bold text-white uppercase hover:bg-indigo-700"
+          className="py-2 px-10 bg-orange-600 rounded-md font-bold text-white uppercase hover:bg-orange-700"
           onClick={()=>setPaciente(paciente)}
         >
           Editar

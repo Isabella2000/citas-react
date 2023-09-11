@@ -11,7 +11,7 @@ function ListadoPacientes({ pacientes, setPaciente, eliminarPaciente }) {
           </h2>
           <p className="text-center tet-xl mt-5 mb-10">
             Administra tus {""}
-            <span className="text-indigo-600 font-bold">Pacientes y Citas</span>
+            <span className="text-orange-600 font-bold">Pacientes y Citas</span>
           </p>
 
           {pacientes.map((paciente) => {
@@ -23,7 +23,7 @@ function ListadoPacientes({ pacientes, setPaciente, eliminarPaciente }) {
           <h2 className="font-black text-3xl text-center">No hay Pacientes</h2>
           <p className="text-center tet-xl mt-5 mb-10">
             Comienza agregando pacientes {""}
-            <span className="text-indigo-600 font-bold">
+            <span className="text-orange-600 font-bold">
               y apareceran en este lugar
             </span>
           </p>
