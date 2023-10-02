@@ -10,6 +10,11 @@ const Formulario = ({pacientes, setPacientes, paciente, setPaciente}) => {
 
   const [error, setError] = useState(false);
 
+  useEffect(() => {
+    console.log(pacientes)
+    localStorage.setItem("pacientes", JSON.stringify(pacientes));
+  }, [pacientes]);
+
   useEffect(()=>{
     if (Object.keys(paciente).length>0) {
       setNombre(paciente.nombre)

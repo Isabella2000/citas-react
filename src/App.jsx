@@ -6,20 +6,22 @@ import Home from "./Home";
 
 function App() {
   const [pacientes, setPacientes] = useState([]);
-  const [paciente, setPaciente] = useState({});
-  const [ingresar, setIngresar] = useState(false);
-
   useEffect(() => {
     const obtenerLS = () => {
-      const pacientesLS = JSON.parse(localStorage.getItem("pacientes")) ?? []; // si no hay nada en localstorash entonces deja un arreglo vacio, esa condicional no me esta sirviendo jum
+      const pacientesLS = JSON.parse(localStorage.getItem("pacientes")); // si no hay nada en localstorash entonces deja un arreglo vacio, esa condicional no me esta sirviendo jum
       setPacientes(pacientesLS);
     };
     obtenerLS();
   }, []);
 
-  useEffect(() => {
-    localStorage.setItem("pacientes", JSON.stringify(pacientes));
-  }, [pacientes]);
+  console.log(pacientes)
+
+  const [paciente, setPaciente] = useState({});
+  const [ingresar, setIngresar] = useState(false);
+
+  
+
+ 
 
   const eliminarPaciente = (id) => {
     const pacientesActualizados = pacientes.filter(
